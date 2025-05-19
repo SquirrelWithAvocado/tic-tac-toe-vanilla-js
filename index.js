@@ -77,7 +77,6 @@ function checkOnWin(line) {
 }
 
 function checkGameEnd() {
-    moveCount++;
     for (let i = 0; i < fieldSize; i++) {
         let row = field[i];
         if (checkOnWin(row)) {
@@ -221,6 +220,7 @@ function makeMove(row, col) {
     console.log(`Move made on cell: ${row}, ${col} by ${turn}`);
 
     field[row][col] = turn;
+    moveCount++;
     renderSymbolInCell(turn, row, col)
     turn = turn === CROSS ? ZERO : CROSS;
 
