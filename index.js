@@ -11,6 +11,7 @@ let field = Array.from({ length: fieldSize }).map(
 let turn = CROSS;
 let moveCount = 0;
 let isGameEnded = false;
+let autoScale = true;
 
 let numberInput = document.querySelector('#field-size');
 numberInput.value = fieldSize;
@@ -29,8 +30,17 @@ let gameMode = {
 let makeCurrentGameMove = gameMode['random-bot'];
 
 initializeGameModes();
+initializeAutoScale();
 startGame();
 addResetListener();
+
+function initializeAutoScale() {
+    let autoScaleElement = document.querySelector('#auto-scale');
+    autoScaleElement.checked = autoScale;
+    autoScaleElement.addEventListener('change', (evt) => {
+        autoScale = evt.checked;
+    });
+}
 
 function initializeGameModes() {
     let gameModeOptionElement = document.querySelector('#game-mode');
@@ -271,7 +281,7 @@ function resetClickHandler() {
 }
 
 function extendField() {
-    if (fieldSize + 2 > MAX_FIELD_SIZE) {
+    if (fieldSize + 2 > MAX_FIELD_SIZE || !autoScale) {
         return;
     }
 
