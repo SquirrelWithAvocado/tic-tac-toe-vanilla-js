@@ -1,11 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <title>Крестики-нолики</title>
     <link rel="stylesheet" href="styles.css">
 </head>
+
 <body>
+    <label class="input-field">
+        Размер поля
+        <input id="field-size" type="number" min="2" max="10">
+    </label>
+    <label class="input-field">
+        Режим игры
+        <select id="game-mode">
+
+        </select>
+    </label>
     <div class="container">
         <table class="table">
             <tbody id="fieldWrapper">
@@ -18,4 +30,5 @@
     </div>
     <script src="index.js"></script>
 </body>
+
 </html>
